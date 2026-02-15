@@ -37,6 +37,7 @@
           pkgs.xorg.libXrandr
           pkgs.xorg.libXi
           pkgs.cmake
+	  pkgs.pipewire
         ];
 
         built = pkgs.stdenv.mkDerivation {
