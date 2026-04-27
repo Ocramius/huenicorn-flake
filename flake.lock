@@ -37,11 +37,11 @@
     "openjowelsofts-huenicorn": {
       "flake": false,
       "locked": {
-        "lastModified": 1751576123,
-        "narHash": "sha256-bmmo/2BTzs5qqnGLle14bDOlcLf9frNwRS/Hin0/D6A=",
+        "lastModified": 1777203834,
+        "narHash": "sha256-147J5jWZSBo2YekmlloSzHuSRaW7RCu6Mc/ilYMd2ZY=",
         "owner": "openjowelsofts",
         "repo": "huenicorn",
-        "rev": "0c3910ab43a64b87755ab500fbae9378376efb46",
+        "rev": "4168e0f55b07d2db4328b0a752263de9863d8eb2",
         "type": "gitlab"
       },
       "original": {
