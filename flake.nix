@@ -10,9 +10,16 @@
     };
   };
 
-  outputs = { flake-utils, nixpkgs, openjowelsofts-huenicorn, ... }:
+  outputs =
+    {
+      flake-utils,
+      nixpkgs,
+      openjowelsofts-huenicorn,
+      ...
+    }:
     flake-utils.lib.eachDefaultSystem (
-      system: let
+      system:
+      let
         pkgs = (import nixpkgs) {
           inherit system;
 
@@ -37,7 +44,7 @@
           pkgs.xorg.libXrandr
           pkgs.xorg.libXi
           pkgs.cmake
-	      pkgs.pipewire
+          pkgs.pipewire
         ];
 
         built = pkgs.stdenv.mkDerivation {
@@ -61,7 +68,8 @@
             cp huenicorn $out/bin/
           '';
         };
-      in {
+      in
+      {
         packages = {
           default = built;
         };
@@ -76,7 +84,8 @@
               # dev environment
               pkgs.jetbrains.clion
               pkgs.nixd
-            ] ++ buildDependencies;
+            ]
+            ++ buildDependencies;
 
             shellHook = ''
               cp -r "${openjowelsofts-huenicorn}" ./src;
@@ -96,12 +105,12 @@
             doCheck = true;
 
             checkPhase = ''
-              if [[ -f "${built}/bin/huenicorn" && -r "${built}/bin/huenicorn" && -x "${built}/bin/huenicorn" ]]; then
-                echo "OK" >> $out;
-              else
-                echo "KO" >> $out;
-                exit 1;
-             fi
+               if [[ -f "${built}/bin/huenicorn" && -r "${built}/bin/huenicorn" && -x "${built}/bin/huenicorn" ]]; then
+                 echo "OK" >> $out;
+               else
+                 echo "KO" >> $out;
+                 exit 1;
+              fi
             '';
           };
         };
