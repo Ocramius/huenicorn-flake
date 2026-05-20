@@ -28,23 +28,23 @@
         };
 
         # https://gitlab.com/openjowelsofts/huenicorn/-/tree/0c3910ab43a64b87755ab500fbae9378376efb46/#dependencies-intallation
-        buildDependencies = [
-          pkgs.crow
-          pkgs.curl
-          pkgs.gcc
-          pkgs.glib
-          pkgs.glm
-          pkgs.gnumake
-          pkgs.mbedtls
-          pkgs.nlohmann_json
-          pkgs.opencv
-          pkgs.pkg-config
-          pkgs.xorg.libX11
-          pkgs.xorg.libXcursor
-          pkgs.xorg.libXrandr
-          pkgs.xorg.libXi
-          pkgs.cmake
-          pkgs.pipewire
+        buildDependencies = with pkgs; [
+          crow
+          curl
+          gcc
+          glib
+          glm
+          gnumake
+          mbedtls
+          nlohmann_json
+          opencv
+          pkg-config
+          libX11
+          libXcursor
+          libXrandr
+          libXi
+          cmake
+          pipewire
         ];
 
         built = pkgs.stdenv.mkDerivation {
