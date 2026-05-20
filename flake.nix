@@ -66,6 +66,8 @@
           default = built;
         };
 
+        formatter = pkgs.nixfmt-tree;
+
         devShells = {
           default = pkgs.mkShell {
             name = "huenicorn build dev shell";
