@@ -48,7 +48,7 @@
         ];
 
         built = pkgs.stdenv.mkDerivation {
-          name = "openjowelsofts-huenicorn";
+          name = "huenicorn";
 
           nativeBuildInputs = buildDependencies;
 
