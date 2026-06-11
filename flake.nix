@@ -8,6 +8,10 @@
       url = "gitlab:openjowelsofts/huenicorn?ref=d050514e4040c574cc3b827d09012b0130f5971d";
       flake = false;
     };
+    httplib = {
+      url = "github:yhirose/cpp-httplib?ref=v0.46.0";
+      flake = false;
+    };
   };
 
   outputs =
@@ -15,6 +19,7 @@
       flake-utils,
       nixpkgs,
       openjowelsofts-huenicorn,
+      httplib,
       ...
     }:
     flake-utils.lib.eachDefaultSystem (
@@ -26,6 +31,11 @@
           # to allow for rust-rover to be installed
           config.allowUnfree = true;
         };
+        
+        newerHttpLib = pkgs.httplib.overrideAttrs (old: {
+            version = "0.46.0";
+            src = httplib;
+        });
 
         # https://gitlab.com/openjowelsofts/huenicorn/-/tree/0c3910ab43a64b87755ab500fbae9378376efb46/#dependencies-intallation
         buildDependencies = with pkgs; [
@@ -34,7 +44,7 @@
           glib
           glm
           gnumake
-          httplib
+          newerHttpLib
           mbedtls
           nlohmann_json
           opencv
