@@ -20,11 +20,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1780930886,
-        "narHash": "sha256-rppURzHviaQN131F+nLiLdGfcb0uCd9gGP0E5+iw9MI=",
+        "lastModified": 1781141223,
+        "narHash": "sha256-Eye4UQJjC4TLobclolFCMl6MrjgiF6Bk1cOI5x8SH00=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8c3cede7ddc26bd659d2d383b5610efbd2c7a16e",
+        "rev": "b503dde361500433ca25a32e8f4d218bf58fb659",
         "type": "github"
       },
       "original": {
@@ -37,15 +37,16 @@
     "openjowelsofts-huenicorn": {
       "flake": false,
       "locked": {
-        "lastModified": 1780945013,
-        "narHash": "sha256-P/r6plO105i8t1zgYj/mnwB/lcCw3bl66dFc8zt0jKY=",
+        "lastModified": 1781213450,
+        "narHash": "sha256-NBCVPmHbAtoBq0I6smKsXQXLI/xK0RcYTps8NQd8KhE=",
         "owner": "openjowelsofts",
         "repo": "huenicorn",
-        "rev": "163bf3008d8bca2383c65d60c90e8378af26ece7",
+        "rev": "d050514e4040c574cc3b827d09012b0130f5971d",
         "type": "gitlab"
       },
       "original": {
         "owner": "openjowelsofts",
+        "ref": "d050514e4040c574cc3b827d09012b0130f5971d",
         "repo": "huenicorn",
         "type": "gitlab"
       }

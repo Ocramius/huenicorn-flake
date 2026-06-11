@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     openjowelsofts-huenicorn = {
-      url = "gitlab:openjowelsofts/huenicorn";
+      url = "gitlab:openjowelsofts/huenicorn?ref=d050514e4040c574cc3b827d09012b0130f5971d";
       flake = false;
     };
   };
@@ -29,12 +29,12 @@
 
         # https://gitlab.com/openjowelsofts/huenicorn/-/tree/0c3910ab43a64b87755ab500fbae9378376efb46/#dependencies-intallation
         buildDependencies = with pkgs; [
-          crow
           curl
           gcc
           glib
           glm
           gnumake
+          httplib
           mbedtls
           nlohmann_json
           opencv
