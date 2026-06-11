@@ -10,9 +10,16 @@
     };
   };
 
-  outputs = { flake-utils, nixpkgs, openjowelsofts-huenicorn, ... }:
+  outputs =
+    {
+      flake-utils,
+      nixpkgs,
+      openjowelsofts-huenicorn,
+      ...
+    }:
     flake-utils.lib.eachDefaultSystem (
-      system: let
+      system:
+      let
         pkgs = (import nixpkgs) {
           inherit system;
 
@@ -21,27 +28,27 @@
         };
 
         # https://gitlab.com/openjowelsofts/huenicorn/-/tree/0c3910ab43a64b87755ab500fbae9378376efb46/#dependencies-intallation
-        buildDependencies = [
-          pkgs.crow
-          pkgs.curl
-          pkgs.gcc
-          pkgs.glib
-          pkgs.glm
-          pkgs.gnumake
-          pkgs.mbedtls
-          pkgs.nlohmann_json
-          pkgs.opencv
-          pkgs.pkg-config
-          pkgs.xorg.libX11
-          pkgs.xorg.libXcursor
-          pkgs.xorg.libXrandr
-          pkgs.xorg.libXi
-          pkgs.cmake
-	      pkgs.pipewire
+        buildDependencies = with pkgs; [
+          crow
+          curl
+          gcc
+          glib
+          glm
+          gnumake
+          mbedtls
+          nlohmann_json
+          opencv
+          pkg-config
+          libX11
+          libXcursor
+          libXrandr
+          libXi
+          cmake
+          pipewire
         ];
 
         built = pkgs.stdenv.mkDerivation {
-          name = "openjowelsofts-huenicorn";
+          name = "huenicorn";
 
           nativeBuildInputs = buildDependencies;
 
@@ -61,10 +68,13 @@
             cp huenicorn $out/bin/
           '';
         };
-      in {
+      in
+      {
         packages = {
           default = built;
         };
+
+        formatter = pkgs.nixfmt-tree;
 
         devShells = {
           default = pkgs.mkShell {
@@ -74,7 +84,8 @@
               # dev environment
               pkgs.jetbrains.clion
               pkgs.nixd
-            ] ++ buildDependencies;
+            ]
+            ++ buildDependencies;
 
             shellHook = ''
               cp -r "${openjowelsofts-huenicorn}" ./src;
@@ -94,12 +105,12 @@
             doCheck = true;
 
             checkPhase = ''
-              if [[ -f "${built}/bin/huenicorn" && -r "${built}/bin/huenicorn" && -x "${built}/bin/huenicorn" ]]; then
-                echo "OK" >> $out;
-              else
-                echo "KO" >> $out;
-                exit 1;
-             fi
+               if [[ -f "${built}/bin/huenicorn" && -r "${built}/bin/huenicorn" && -x "${built}/bin/huenicorn" ]]; then
+                 echo "OK" >> $out;
+               else
+                 echo "KO" >> $out;
+                 exit 1;
+              fi
             '';
           };
         };
