@@ -5,7 +5,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     openjowelsofts-huenicorn = {
-      url = "gitlab:openjowelsofts/huenicorn";
+      url = "gitlab:openjowelsofts/huenicorn?ref=14ec615f9e2ac51bba72d92edc9924602a994ff3";
+      flake = false;
+    };
+    httplib = {
+      url = "github:yhirose/cpp-httplib?ref=v0.46.0";
       flake = false;
     };
   };
@@ -15,6 +19,7 @@
       flake-utils,
       nixpkgs,
       openjowelsofts-huenicorn,
+      httplib,
       ...
     }:
     flake-utils.lib.eachDefaultSystem (
@@ -26,15 +31,20 @@
           # to allow for rust-rover to be installed
           config.allowUnfree = true;
         };
+        
+        newerHttpLib = pkgs.httplib.overrideAttrs (old: {
+            version = "0.46.0";
+            src = httplib;
+        });
 
         # https://gitlab.com/openjowelsofts/huenicorn/-/tree/0c3910ab43a64b87755ab500fbae9378376efb46/#dependencies-intallation
         buildDependencies = with pkgs; [
-          crow
           curl
           gcc
           glib
           glm
           gnumake
+          newerHttpLib
           mbedtls
           nlohmann_json
           opencv
