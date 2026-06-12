@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     openjowelsofts-huenicorn = {
-      url = "gitlab:openjowelsofts/huenicorn?ref=d050514e4040c574cc3b827d09012b0130f5971d";
+      url = "gitlab:openjowelsofts/huenicorn?ref=14ec615f9e2ac51bba72d92edc9924602a994ff3";
       flake = false;
     };
     httplib = {

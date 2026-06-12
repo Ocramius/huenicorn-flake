@@ -18,6 +18,23 @@
         "type": "github"
       }
     },
+    "httplib": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779683427,
+        "narHash": "sha256-Vzr51oo344jFNwmqdtLWxClJpuCTzmnMqXyLCz8UZj4=",
+        "owner": "yhirose",
+        "repo": "cpp-httplib",
+        "rev": "008e107d0fcddee7cb96dc5ad3c3189fd090e40a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yhirose",
+        "ref": "v0.46.0",
+        "repo": "cpp-httplib",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1781141223,
@@ -37,16 +54,16 @@
     "openjowelsofts-huenicorn": {
       "flake": false,
       "locked": {
-        "lastModified": 1781213450,
-        "narHash": "sha256-NBCVPmHbAtoBq0I6smKsXQXLI/xK0RcYTps8NQd8KhE=",
+        "lastModified": 1781221504,
+        "narHash": "sha256-mu67ANmhewuv3ro6wrW7egXb9ychLjI2JF1NWLgYmjQ=",
         "owner": "openjowelsofts",
         "repo": "huenicorn",
-        "rev": "d050514e4040c574cc3b827d09012b0130f5971d",
+        "rev": "14ec615f9e2ac51bba72d92edc9924602a994ff3",
         "type": "gitlab"
       },
       "original": {
         "owner": "openjowelsofts",
-        "ref": "d050514e4040c574cc3b827d09012b0130f5971d",
+        "ref": "14ec615f9e2ac51bba72d92edc9924602a994ff3",
         "repo": "huenicorn",
         "type": "gitlab"
       }
@@ -54,6 +71,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "httplib": "httplib",
         "nixpkgs": "nixpkgs",
         "openjowelsofts-huenicorn": "openjowelsofts-huenicorn"
       }
